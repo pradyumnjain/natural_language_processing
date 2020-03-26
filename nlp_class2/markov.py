@@ -16,7 +16,9 @@ from rnn_class.brown import get_sentences_with_word2idx_limit_vocab, get_sentenc
 
 
 
-def get_bigram_probs(sentences, V, start_idx, end_idx, smoothing=1):
+def get_bigram_probs(sentences, V, start_idx, end_idx, smoothing=1): 
+  #smoothing can be any number (hyper paramter)
+  #till the time you normalize it later
   # structure of bigram probability matrix will be:
   # (last word, current word) --> probability
   # we will use add-1 smoothing
@@ -67,7 +69,7 @@ if __name__ == '__main__':
   # row = last word
   # col = current word
   # value at [row, col] = p(current word | last word)
-  bigram_probs = get_bigram_probs(sentences, V, start_idx, end_idx, smoothing=0.1)
+  bigram_probs = get_bigram_probs(sentences, V, start_idx, end_idx, smoothing=0.1)#smoothening is an hyperparameter
 
 
   # a function to calculate normalized log prob score
